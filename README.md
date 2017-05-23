@@ -18,3 +18,4 @@ Docker Compose commands
 `docker-compose up -d nginx mysql workspace php-fpm`
 `docker-compose exec --user=laradock workspace bash`
 
+
