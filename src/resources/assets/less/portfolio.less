@@ -1,0 +1,147 @@
+.portfolio-container{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 270px;
+    left: 0;
+    background-color: #D3A748;
+    z-index: 1000;    
+    border: 5px solid #626167;
+    padding-top: 20px;
+}
+
+div.close-portoflio{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+div.project {
+    min-height: 450px;    
+}
+div.project div.thumbnail {
+    min-height: 420px;    
+}
+div.project img{
+/*    border: 1px solid #383535;*/
+    border-radius: 4px;
+    max-height: 244px;
+    width:100%;
+}
+
+.guard h2{
+  color: #886c2e;
+}
+
+div.guard{
+    /*border-bottom: 1px solid #191B3C;*/
+    margin: 25px 0 15px 0;
+}
+
+div.guard h2{
+    margin: 15px 0 5px 0;
+}
+
+.btn:hover, .btn:active{
+    background-color: #698281;
+    color:#fff;
+}
+
+.btn-cta-secondary{
+    background-color: #5A5B7F;
+    margin: 5px;
+    padding: 10px 15px 10px 15px;
+    color:#fff;
+    text-transform: none;
+    font-size: 12px;
+}
+
+span.label{
+    font-size: 11px;
+}
+
+div.thumbnail, .btn-cta-secondary, span.label, img.img-rounded, div.modal-content{
+    border-radius: 0 !important;
+    border: none;
+}
+
+.thumbnail .a-img, .thumbnail .a-img:hover {
+    border: none;
+    background: none;
+}
+
+/*labels*/
+div.label-container{
+    padding: 1px;
+}
+
+span.label{
+    margin: 0 2px 0 2px !important;
+}
+
+span.label-web{
+    background-color: #35524F;
+}
+span.label-responsive{
+    background-color: #3C4758;
+}
+span.label-develop{
+    background-color: #857457;
+}
+span.label-auto{
+    background-color: #856B57;
+}
+span.label-ex{
+    background-color: #D4BDAB;
+}
+span.label-game{
+    background-color: #533F1D;
+}
+span.label-research{
+    background-color: #511111;
+}
+span.label-abml{
+    background-color: #533F00;
+}
+span.label-intr{
+    background-color: #856B00;
+}
+span.label-info{
+    background-color: #856777;
+}
+
+
+
+@media (max-width: 400px) { 
+    div.project {
+        min-height: 440px;    
+    }
+    div.project div.thumbnail {
+        min-height: 410px;    
+    }
+
+    div.close-portoflio{
+        position: static;                
+        font-size: 25px;
+        cursor: pointer;
+        margin: auto;
+        display: block;
+    }
+
+    i.close-portoflio{        
+        display: inline !important;
+        cursor: pointer;
+    }
+    
+    div.close-portoflio a{
+        width: 100%;
+    }
+    
+    .portfolio-container{
+        padding-top: 20px; 
+        border: 3px solid #626167;
+    }
+}
