@@ -5,10 +5,10 @@
 ###Tecnologías:
 
 1. Entorno: Docker -> http://laradock.io 
-1.1. Nginx y php-fpm
-1.2. PHP7 ( Laravel )
-1.3. MySQL 
-1.4. Vue.js 
+2. Nginx y php-fpm
+3. PHP7 ( Laravel )
+4. MySQL 
+5. Vue.js 
 
 
 -------------------------------------------------
