@@ -20,3 +20,8 @@ Docker Compose commands
 `docker-compose exec --user=laradock workspace bash`
 
 
+--------------------------------------------------
+
+Troubleshoot
+
+1. Para ver log `docker logs -f $(docker ps | grep php-fpm | awk -F $'[ ]{2,}' '{ print $7 }')`

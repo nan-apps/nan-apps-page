@@ -24,10 +24,7 @@ class CreateProjectsTable extends Migration
             $table->text('short_desc')->nullable();
             $table->text('long_desc')->nullable();
             $table->boolean('has_full_img')->default( 0 );
-            $table->boolean('highlighted')->default( 0 );
-
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');            
+            $table->string('img_ext')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

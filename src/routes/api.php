@@ -33,6 +33,7 @@ Route::group( [ 'namespace' => 'Api' ], function (){
 		Route::resource('projects_tags', 'ProjectTagController');
 		Route::resource('attributes', 'AttributeController');
 		Route::resource('skills', 'SkillController');
+		Route::resource('tags', 'TagController');
 
 	});
 

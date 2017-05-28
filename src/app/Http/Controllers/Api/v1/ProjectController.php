@@ -25,9 +25,8 @@ class ProjectController extends Controller
     public function index( Request $request )
     {
          try {
-                        
+
             return $this->model
-                        ->where('highlighted', 1)
                         ->orderBy('created_at', 'desc')
                         ->get();
 

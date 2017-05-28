@@ -46,10 +46,16 @@
 	var social_comp = {    	
 	    template: `
 	  	<ul class="social list-inline">
-            <li><a target="_blank" href="https://github.com/nan-apps/"><i class="fa fa-github-alt"></i></a></li> 
-            <li><a target="_blank" href="https://www.linkedin.com/in/nangastonr"><i class="fa fa-linkedin"></i></a></li>
+            <li>
+            	<a title="Github" target="_blank" href="https://github.com/nan-apps/"><i class="fa fa-github-alt"></i></a>
+        	</li> 
+            <li>
+            	<a title="Linkedin" target="_blank" href="https://www.linkedin.com/in/nangastonr"><i class="fa fa-linkedin"></i></a>
+        	</li>
             <!--<li><a target="_blank" href="https://www.facebook.com/nan.apps.web"><i class="fa fa-facebook"></i></a></li>-->
-            <li><a target="_blank" href="http://gnan-blog.tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+            <li>
+            	<a title="Tumblr" target="_blank" href="http://gnan-blog.tumblr.com/"><i class="fa fa-tumblr"></i></a>
+        	</li>
         </ul> 
 	  `
 	};

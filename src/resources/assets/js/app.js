@@ -12,10 +12,10 @@ Vue.component('about-section', require('./components/AboutSection.vue'));
 Vue.component('info-section', require('./components/InfoSection.vue'));
 Vue.component('skills-section', require('./components/SkillsSection.vue'));
 Vue.component('contact-section', require('./components/ContactSection.vue'));
+Vue.component('projects-section', require('./components/ProjectsSection.vue'));
 
 Vue.component('loading', require('./components/Loading.vue'));
 Vue.component('section-icon', require('./components/SectionIcon.vue'));
-
 
 const app = new Vue({
 
@@ -29,11 +29,13 @@ const app = new Vue({
 	    this.fetchAttributes();	    
 	},
 	methods: {
-		toggleContactSection: function( toggle, event ){
-			console.log("toggle");
+		toggleSection: function( target, toggle, event ){
 			if (event) event.preventDefault()
-			this.show_contact_section = toggle;	
-			if( toggle ) this.$scrollTo('#contact-section', 1000/*, duration, options*/);		
+			this.show_contact_section = toggle;				
+			if( toggle ) 
+				this.$scrollTo( target, 1000/*, duration, options*/);		
+			else
+				this.$scrollTo('body', 1000/*, duration, options*/);		
 		},
 	  	fetchAttributes: function(){
 			var self = this;

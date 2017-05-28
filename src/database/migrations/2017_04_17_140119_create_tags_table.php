@@ -21,6 +21,7 @@ class CreateTagsTable extends Migration
             $table->string('name')->unique();
             $table->string('description')->nullable();
             $table->string('css_class')->nullable();
+            $table->integer('order')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

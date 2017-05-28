@@ -1,5 +1,5 @@
 <template>
-	<span class="fa-stack fa-lg">
+	<span @click="hideSection" class="section-icon fa-stack fa-lg">
 	  <i class="fa fa-circle fa-stack-2x"></i>
 	  <i :class="'fa fa-'+icon+' fa-stack-1x fa-inverse'"></i>
 	</span>
@@ -9,7 +9,14 @@
 	
     
     module.exports = {
-    	props: ["icon"]
+    	props: ["icon", "hide_section"],    	
+    	methods: {
+    		hideSection(){
+    			if( this.hide_section ){
+    				this.$emit('hide_section');				
+    			}
+    		}
+    	}
 	}
 
 </script>

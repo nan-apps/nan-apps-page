@@ -28,9 +28,6 @@
 
 	var moment = require('moment');
 	var mixins = require('./mixins');
-	//import mixins from './mixins';
-
-	console.log(mixins);
 
 	var skill_item = {
     	props: ['skill'],

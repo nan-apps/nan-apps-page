@@ -1,11 +1,15 @@
 <template>
 
-	<transition name="fade">
-		<section class="contact section" id="contact-section" >
+	<transition v-on:enter="scroll" name="fade">
+		<section  class="contact section" id="contact-section" >
 
 	        <div class="section-inner">
 		            
-	    	    <section-icon v-on:click="$emit('hide_contact')" icon="close" ></section-icon>
+	    	    <section-icon  title="Cerrar contacto" 
+	    	    			   icon="close"
+	    	    			   :hide_section="true" 
+	    	    			   v-on:hide_section="hideSection" >	    	    	
+	    	    </section-icon>
 	            
 	            <h2 class="heading">
 	                Contacto
@@ -63,7 +67,21 @@
     			show_msg: false
     		}
     	},
-        props: ['email']
+        props: ['email'],
+        methods: {
+        	scroll: function(){
+        		this.$scrollTo('#contact-section', 1000/*, duration, options*/);		
+        	},
+        	hideSection: function( toggle, event ){
+				this.$emit('hide_contact');
+			},
+        }
 	}
 
 </script>
+
+<style scoped >
+	.section-icon{
+		cursor: pointer;
+	}
+</style>

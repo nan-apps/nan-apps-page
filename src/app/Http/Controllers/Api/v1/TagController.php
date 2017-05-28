@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Skill;
-use Illuminate\Http\Request;
+use App\Tag;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Exceptions\ApiException;
 
-class SkillController extends Controller
+class TagController extends Controller
 {
 
-    protected $model;
+	protected $model;
 
-    function __construct(Skill $model)
+    function __construct(Tag $model)
     {
         $this->model = $model;
     }
@@ -29,11 +29,11 @@ class SkillController extends Controller
             return $this->model->get();
 
         } catch ( ApiException $e ) {                              
-            \Log::info('Error listando skills: '.$e);            
+            \Log::info('Error listando tags: '.$e);            
             return \Response::json(['error' => true, 
                                     'message' => $e->getMessage() ], $e->getStatusCode());
         } catch ( \Exception $e ) {                        
-            \Log::info('Error listando skills: '.$e);            
+            \Log::info('Error listando tags: '.$e);            
             if( env('APP_DEBUG') ) dd($e);
             return \Response::json(['error' => true, 
                                     'message' => 'Error 500' ], 500);
@@ -64,10 +64,10 @@ class SkillController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Skill  $skill
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Skill $skill)
+    public function show($id)
     {
         //
     }
@@ -75,10 +75,10 @@ class SkillController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Skill  $skill
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Skill $skill)
+    public function edit($id)
     {
         //
     }
@@ -87,10 +87,10 @@ class SkillController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Skill  $skill
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Skill $skill)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -98,10 +98,10 @@ class SkillController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Skill  $skill
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Skill $skill)
+    public function destroy($id)
     {
         //
     }
