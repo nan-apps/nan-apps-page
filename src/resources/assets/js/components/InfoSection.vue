@@ -11,13 +11,14 @@
             <div class="content">
                 <ul class="list-unstyled">
 
+                    <li><i class="fa fa-user-circle"></i><span class="sr-only">Nombre:</span>{{developer}}</li>
                     <li><i class="fa fa-map-marker"></i><span class="sr-only">Location:</span>{{location}}</li>
                     <li><i class="fa fa-envelope-o"></i><span class="sr-only">Email:</span>
                     	<a :href="'mailto:'+email">{{email}}</a>
                 	</li>
-                    <li><i class="fa fa-list"></i><span class="sr-only">Portfolio:</span>
+                    <!-- <li><i class="fa fa-list"></i><span class="sr-only">Portfolio:</span>
                         <a data-toggle="modal" data-target="#portfolio" href="/portfolio">Portfolio completo</a>
-                    </li>
+                    </li> -->
 
                 </ul>
             </div>
@@ -28,7 +29,7 @@
 
 <script>
     module.exports = {
-        props: ['fetching_attrs','location', 'email']
+        props: ['fetching_attrs','location', 'email', 'developer']
 	}
 
 </script>

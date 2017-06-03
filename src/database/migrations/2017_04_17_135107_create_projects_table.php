@@ -26,6 +26,9 @@ class CreateProjectsTable extends Migration
             $table->boolean('has_full_img')->default( 0 );
             $table->string('img_ext')->nullable();
 
+            $table->integer('partner_id')->unsigned()->nullable()->default(null);
+            $table->foreign('partner_id')->references('id')->on('partners');
+
             $table->softDeletes();
             $table->timestamps();
 

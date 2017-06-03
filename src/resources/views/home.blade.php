@@ -32,7 +32,10 @@
 				</div>
 				<div class="secondary col-md-4 col-sm-12 col-xs-12">
 					
-					<info-section :fetching_attrs="fetching_attrs" :location="attributes['location']" :email="attributes['email']" >						
+					<info-section :fetching_attrs="fetching_attrs" 
+								  :location="attributes['location']" 
+								  :email="attributes['email']" 
+								  :developer="attributes['developer']">						
 					</info-section>
 
 					<skills-section :fetching_attrs="fetching_attrs" :description="attributes['skills']" >

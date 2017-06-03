@@ -1,17 +1,25 @@
 <template>
+
     <section class="latest section">
 
     	<loading v-if="fetching_data" ></loading>
 
         <div v-else class="section-inner">
+
+        <section-icon icon="briefcase" ></section-icon>
+
             <h2 class="heading">Proyectos</h2>
             <div class="content">    
 
-            	<filter-tags></filter-tags>
+            	<filter-tags :fetching_projects="fetching_data" 
+            				 :default_filter_tag="default_filter_tag" 
+            				  @filter_projects_by_tag="filterByTag" >            		
+            	</filter-tags>
 
             	<hr/>
 
-            	<project v-for="project in projects" :project="project" ></project>
+            	<project v-for="project in filteredProjects" :project="project" >            		
+            	</project>
 
                 </div><!--//content-->  
             </div><!--//section-inner-->                 
@@ -57,16 +65,39 @@
     	data: function(){
     		return {    			
 			    projects: [],	    
-			    fetching_data: false
+			    default_filter_tag: 'highlighted',
+			    active_filter: '',
+			    fetching_data: false,
     		}
 		},
-        props: [],
         components: {
         	"project": project_item,
         	"filter-tags": filter_tags
         },
         mounted: function() {	    
         	this.fetchProjects();		    
+		},
+		computed: {
+			filteredProjects: function(){				
+				
+				var self = this;
+				console.log( this.active_filter );
+
+				if( !this.active_filter || this.active_filter == 'all' ){
+					return this.projects;
+				} else {
+					var filtered = this.projects.filter( function(obj) {
+						var ctrl = false;	
+						obj.tags.forEach(function( o ){
+							if( !ctrl ){
+								ctrl = o.key == self.active_filter;	
+							} 
+						});
+					    return ctrl;
+					});
+					return filtered;
+				}
+			}
 		},
         methods: {
         	fetchProjects(){
@@ -78,6 +109,9 @@
 			    }, function(){
 			    	self.fetching_data = false;
 			    });	    	
+        	},
+        	filterByTag( tag_key ){
+        		this.active_filter = tag_key;		
         	}
 	    }		    	    
 	}

@@ -67,13 +67,6 @@
     		"social-comp": social_comp,
     		"title-comp": title_comp
     	},
-    	methods: function(){
-
-    	},
-	    computed: {
-	    	
-	    }	  
-
 	}
 
 </script>

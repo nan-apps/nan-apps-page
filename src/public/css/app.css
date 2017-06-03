@@ -9415,6 +9415,11 @@ aside.section,
 div.section {
   position: relative;
 }
+/* buttons */
+.btn-cta-secondary.active {
+  background: #557397;
+  border: 1px solid #70759f;
+}
 /* Projects Section */
 div.project {
   min-height: 450px;

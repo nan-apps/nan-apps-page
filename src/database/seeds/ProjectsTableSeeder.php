@@ -12,6 +12,9 @@ class ProjectsTableSeeder extends Seeder
     public function run()
     {
 
+        $wecode = App\Partner::where('key', 'wecode')->first()->id;
+        $tinka = App\Partner::where('key', 'tinka')->first()->id;
+
         DB::table('projects')->insert(
         	[
                 [
@@ -19,13 +22,12 @@ class ProjectsTableSeeder extends Seeder
     	            'name' => 'Kuruf',
                     'short_desc' => 'Sistema de gestion para la produccion y la administración de una cervecería rio negrina.  ',
                     'long_desc' => 'Sistema de gestion para <a href="http://cerveceriakuruf.com/"  " target="_blank" >cervecería rio negrina</a>.  El sitema permite gestionar tanto el area de produccion como el area de administración de la cervecería. 
-                        Desarrollado con Ruby on Rails y MySQL. Maquetado con HTML5, CSS3 y bootstrap responsive.
-                        <br/>Trabajo realizado en equipo junto a <a href="http://wecode.io" target="_blank">Wecode</a>.',
+                        Desarrollado con Ruby on Rails y MySQL. Maquetado con HTML5, CSS3 y bootstrap responsive.',
                     'link' => null,
                     'github_link' => null,
                     'has_full_img' => true,
                     'img_ext' => 'png',
-                    
+                    'partner_id' => $wecode                    
             	],
                 [
                     'key' => 'fe',
@@ -35,7 +37,8 @@ class ProjectsTableSeeder extends Seeder
                     'link' => 'http://somosfe.com.ar/',
                     'github_link' => null,
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],
                 [
                     'key' => 'flowmax',
@@ -45,7 +48,8 @@ class ProjectsTableSeeder extends Seeder
                     'link' => 'http://flowmax.com.ar',
                     'github_link' => '',
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],          
                 [
                     'key' => 'socol',
@@ -55,17 +59,19 @@ class ProjectsTableSeeder extends Seeder
                     'link' => 'http://www.socol.com.ar',
                     'github_link' => null,
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],
                 [
                     'key' => 'opciones',
                     'name' => 'Opciones Argentinas',
                     'short_desc' => 'Sistema de gestión a medida para administrar pagos de clientes.',
-                    'long_desc' => 'Sistema de gestión a medida para administrar pagos de clientes.<br/>El sistema tiene integración con API de <a target="_blank" href="http://www.decidir.com.ar/">SPS Decidir</a>. <br/> Desarrollado con PHP ( OpenCore Framework ) y MySQL.<br/>Maquetado con HTML5, CSS3 y bootstrap responsive.',
+                    'long_desc' => 'Sistema de gestión a medida para administrar pagos de clientes.<br/>El sistema tiene integración con API de <a target="_blank" href="http://www.decidir.com.ar/">SPS Decidir</a>. <br/> Desarrollado con PHP ( OpenCore Framework ) y MySQL.<br/>Maquetado con HTML5, CSS3 y bootstrap responsive.<br/>Trabajo realizado en equipo junto a <a href="https://www.tinkalawinka.com/" target="_blank">TinkaLawinka</a>.',
                     'link' => null,
                     'github_link' => null,
                     'has_full_img' => true,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => $tinka
                 ],
                 [
                     'key' => 'roo',
@@ -75,17 +81,19 @@ class ProjectsTableSeeder extends Seeder
                     'link' => null,
                     'github_link' => null,
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],                
                 [
                     'key' => 'lemon',
                     'name' => 'Lemon',
                     'short_desc' => 'Estudio de sonido y grabación',
-                    'long_desc' => null,
+                    'long_desc' => 'Estudio de sonido y grabación',
                     'link' => 'http://lemon.nan-apps.com',
                     'github_link' => null,
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],
                 [
                     'key' => 'processing_experiments',
@@ -95,7 +103,8 @@ class ProjectsTableSeeder extends Seeder
                     'link' => null,
                     'github_link' => 'https://github.com/nan-apps/processing_projects',
                     'has_full_img' => true,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],
                 [
                     'key' => 'openfights',
@@ -105,7 +114,8 @@ class ProjectsTableSeeder extends Seeder
                     'link' => 'http://openfights.nan-apps.com/',
                     'github_link' => 'https://github.com/nan-apps/OpenFights',
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],
                 [
                     'key' => 'clonoluchas',
@@ -115,7 +125,8 @@ class ProjectsTableSeeder extends Seeder
                     'link' => 'http://clonoluchas.nan-apps.com',
                     'github_link' => 'https://github.com/nan-apps/clonoluchas',
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],
                 [
                     'key' => 'treefractalgenerator',
@@ -125,7 +136,30 @@ class ProjectsTableSeeder extends Seeder
                     'link' => 'http://nan-apps.com/research/TreeFractalGenerator',
                     'github_link' => 'https://github.com/nan-apps/TreeFractalGenerator',
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
+                ],
+                [
+                    'key' => 'gestorauto',
+                    'name' => 'Gestor Automotriz',
+                    'short_desc' => 'Administrador para gestores automotrices',
+                    'long_desc' => 'Administrador para gestores automotrices. Realizado con PHP, framework CodeIgniter y ORM Doctrine para modelado de base de datos. Para el front se uso jquery y bootstrap responsive.',
+                    'link' => null,
+                    'github_link' => null,
+                    'has_full_img' => true,
+                    'img_ext' => 'png',
+                    'partner_id' => $tinka
+                ],
+                [
+                    'key' => 'we_avatar',
+                    'name' => 'we_avatar',
+                    'short_desc' => 'Selecciona una imagen de perfil desde tu webcam o mediante un upload usando HTML5 y JQuery',
+                    'long_desc' => 'Contribucion a la librería JavaScript we_avatar. Selecciona una imagen de perfil desde tu webcam o mediante un upload usando HTML5 y JQuery',
+                    'link' => 'http://blog.wecode.io/we_avatar/demo.html',
+                    'github_link' => 'https://github.com/nan-apps/we_avatar',
+                    'has_full_img' => false,
+                    'img_ext' => 'png',
+                    'partner_id' => $wecode
                 ],
             ]   
         );

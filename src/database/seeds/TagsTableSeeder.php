@@ -29,14 +29,14 @@ class TagsTableSeeder extends Seeder
                 ],
                 [
                     'key' => 'auto',
-                    'name' => 'Autogestionable',
+                    'name' => 'Autogestionables',
                     'description' => 'Autogestión de contenido mediante un panel de administración',
                     'css_class' => 'label-auto',
                     'order' => 800
                 ],
                 [
                     'key' => 'game',
-                    'name' => 'Juego',
+                    'name' => 'Juegos',
                     'description' => 'Experimentación con juegos',
                     'css_class' => 'label-game',
                     'order' => 500
@@ -50,14 +50,14 @@ class TagsTableSeeder extends Seeder
                 ],
                 [
                     'key' => 'abml',
-                    'name' => 'Sistema de gestión',
+                    'name' => 'Sistemas de gestión',
                     'description' => 'Desarrollo de sistema de gestión a medida',
                     'css_class' => 'label-intr',
                     'order' => 900,
                 ],
                 [
                     'key' => 'highlighted',
-                    'name' => 'Destacado',
+                    'name' => 'Destacados',
                     'description' => 'Proyecto destacado',
                     'css_class' => 'label-highlighted',
                     'order' => 1000

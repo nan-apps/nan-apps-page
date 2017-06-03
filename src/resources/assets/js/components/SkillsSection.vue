@@ -5,9 +5,9 @@
 
         <div v-else class="section-inner">
 
-        	<section-icon icon="thumbs-up" ></section-icon>
+        	<section-icon icon="wrench" ></section-icon>
 
-            <h2 class="heading">Skills</h2>
+            <h2 class="heading">Conocimientos</h2>
             <div class="content">
                 <p class="intro">
                     {{description}}
