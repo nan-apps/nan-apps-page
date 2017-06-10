@@ -9,13 +9,17 @@ require('./bootstrap');
 
 Vue.component('header-section', require('./components/HeaderSection.vue'));
 Vue.component('about-section', require('./components/AboutSection.vue'));
+Vue.component('projects-section', require('./components/ProjectsSection.vue'));
+Vue.component('contact-section', require('./components/ContactSection.vue'));
+
 Vue.component('info-section', require('./components/InfoSection.vue'));
 Vue.component('skills-section', require('./components/SkillsSection.vue'));
-Vue.component('contact-section', require('./components/ContactSection.vue'));
-Vue.component('projects-section', require('./components/ProjectsSection.vue'));
+Vue.component('partners-section', require('./components/PartnersSection.vue'));
+Vue.component('hobbies-section', require('./components/HobbiesSection.vue'));
 
-//Vue.component('partners-section', require('./components/PartnersSection.vue'));
-//Vue.component('hobbies-section', require('./components/HobbiesSection.vue'));
+//Vue.component('studies-section', require('./components/StudiesSection.vue'));
+//Vue.component('langs-section', require('./components/LangsSection.vue'));
+//Vue.component('job-experience-section', require('./components/JobExperienceSection.vue'));
 
 Vue.component('loading', require('./components/Loading.vue'));
 Vue.component('section-icon', require('./components/SectionIcon.vue'));

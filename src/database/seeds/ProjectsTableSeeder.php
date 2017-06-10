@@ -66,7 +66,7 @@ class ProjectsTableSeeder extends Seeder
                     'key' => 'opciones',
                     'name' => 'Opciones Argentinas',
                     'short_desc' => 'Sistema de gestión a medida para administrar pagos de clientes.',
-                    'long_desc' => 'Sistema de gestión a medida para administrar pagos de clientes.<br/>El sistema tiene integración con API de <a target="_blank" href="http://www.decidir.com.ar/">SPS Decidir</a>. <br/> Desarrollado con PHP ( OpenCore Framework ) y MySQL.<br/>Maquetado con HTML5, CSS3 y bootstrap responsive.<br/>Trabajo realizado en equipo junto a <a href="https://www.tinkalawinka.com/" target="_blank">TinkaLawinka</a>.',
+                    'long_desc' => 'Sistema de gestión a medida para administrar pagos de clientes.<br/>El sistema tiene integración con API de <a target="_blank" href="http://www.decidir.com.ar/">SPS Decidir</a>. <br/> Desarrollado con PHP ( OpenCore Framework ) y MySQL.<br/>Maquetado con HTML5, CSS3 y bootstrap responsive.',
                     'link' => null,
                     'github_link' => null,
                     'has_full_img' => true,

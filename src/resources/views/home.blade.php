@@ -41,6 +41,9 @@
 					<skills-section :fetching_attrs="fetching_attrs" :description="attributes['skills']" >
 					</skills-section>
 
+					<partners-section></partners-section>
+					<hobbies-section></hobbies-section>
+
 				</div>
 			</div>		
 

@@ -34,6 +34,8 @@ Route::group( [ 'namespace' => 'Api' ], function (){
 		Route::resource('attributes', 'AttributeController');
 		Route::resource('skills', 'SkillController');
 		Route::resource('tags', 'TagController');
+		Route::resource('partners', 'PartnerController');
+		Route::resource('hobbies', 'HobbyController');
 
 	});
 

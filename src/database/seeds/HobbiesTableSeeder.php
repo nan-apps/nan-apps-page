@@ -15,7 +15,7 @@ class HobbiesTableSeeder extends Seeder
         	[
                 [
                     'name' => 'Alimentación consciente',
-s                   'order' => 1000,
+                    'order' => 1000,
                     'icon' => 'star'
                 ],
                 [

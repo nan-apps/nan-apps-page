@@ -23,7 +23,20 @@ class HobbyController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            
+            return $this->model->get();
+
+        } catch ( ApiException $e ) {                              
+            \Log::info('Error listando hobbies: '.$e);            
+            return \Response::json(['error' => true, 
+                                    'message' => $e->getMessage() ], $e->getStatusCode());
+        } catch ( \Exception $e ) {                        
+            \Log::info('Error listando hobbies: '.$e);            
+            if( env('APP_DEBUG') ) dd($e);
+            return \Response::json(['error' => true, 
+                                    'message' => 'Error 500' ], 500);
+        }
     }
 
     /**
