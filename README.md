@@ -1,8 +1,8 @@
 # nan-apps-page
 
-##Mi sitio, portfolio y más.
+## Mi sitio, portfolio y más.
 
-###Tecnologías:
+### Tecnologías:
 
 1. Entorno: Docker -> http://laradock.io 
 2. Nginx y php-fpm
@@ -19,6 +19,8 @@ Docker Compose commands
 
 `docker-compose exec --user=laradock workspace bash`
 
+Para producción
+`-f production-docker-compose.yml`
 
 --------------------------------------------------
 
