@@ -1,4 +1,4 @@
-/*   
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic);@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);/*   
  * Template Name: Developer - Responsive Website Template for Developers
  * Version: 1.3
  * Author: Xiaoying Riley
@@ -7,6 +7,8 @@
  * Website: http://themes.3rdwavemedia.com/
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -9415,6 +9417,10 @@ aside.section,
 div.section {
   position: relative;
 }
+/* Sections */
+.section .heading {
+  color: #626167;
+}
 /* buttons */
 .btn-cta-secondary.active {
   background: #557397;
@@ -9433,28 +9439,8 @@ div.project img {
   max-height: 244px;
   width: 100%;
 }
-/* Sections */
-.section .heading {
-  color: #626167;
-}
 /* Info Section */
 /* End info */
-/*Contact Form*/
-#contact form .glyphicon {
-  color: #737D8C;
-}
-#contact form .btn .glyphicon {
-  color: #fff;
-}
-#contact .modal-title {
-  font-size: 30px;
-  color: #737D8C;
-}
-#contact .alert {
-  background-color: #f7f7ff;
-  color: #737D8C;
-  margin: auto;
-}
 /* transitions */
 .fade-enter-active,
 .fade-leave-active {
@@ -9526,7 +9512,7 @@ div.guard h2 {
   font-size: 12px;
 }
 span.label {
-  font-size: 11px;
+  font-size: 11px !important;
 }
 div.thumbnail,
 .btn-cta-secondary,

@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<img class="earth" src="/img/earth.png" />   
-		<header class="header">
+		<header class="header" >
 		    <div class="container">
 		    	
 		    	<avatar-comp :developer="developer" ></avatar-comp>
@@ -14,7 +14,10 @@
 		            
 		        </div><!--//profile-->
 
-		        <a v-on:click="$emit('show_contact', $event)" class="btn btn-cta-primary pull-right" href="/contact"><i class="fa fa-paper-plane"></i> Contactame</a>              
+
+		        <router-link to="/contact" class="btn btn-cta-primary pull-right">
+		        	<i class="fa fa-paper-plane"></i> Contactame
+	        	</router-link>      
 
 		    </div><!--//container-->
 		</header><!--//header-->

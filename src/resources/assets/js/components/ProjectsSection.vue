@@ -1,6 +1,5 @@
 <template>
-
-    <section class="latest section">
+    <section id="projects-section" class="projects section">
 
     	<loading v-if="fetching_data" ></loading>
 
@@ -60,15 +59,23 @@
 				if( !this.active_filter || this.active_filter == 'all' ){
 					return this.projects;
 				} else {
-					var filtered = this.projects.filter( function(obj) {
+
+					//filtro con lodash
+					var filtered = _.filter( self.projects, function( project ) {
+					  return _.includes( _.map( project.tags, 'key'), self.active_filter );
+					});
+
+					//filtro vainilla
+					/*var filtered = this.projects.filter( function(obj) {
 						var ctrl = false;	
 						obj.tags.forEach(function( o ){
 							if( !ctrl ){
 								ctrl = o.key == self.active_filter;	
 							} 
-						});
+						});						
 					    return ctrl;
-					});
+					});*/
+
 					return filtered;
 				}
 			}

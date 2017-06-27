@@ -7,6 +7,7 @@
 	        <div class="desc col-md-8 col-sm-8 col-xs-12">
 	            <h3 class="title">
 	                {{project.name}}
+	                <tags :tags="project.tags" ></tags>
 	            </h3>
 
 	            <description :project="project" :partner="project.partner" ></description>
@@ -42,12 +43,25 @@
 	  `
 	};
 
+	var tags = {
+    	props: ['tags'],    	
+	    template: `
+		    <span>
+		    	<span v-for="tag in tags" :title="tag.description" 		    							  
+		    							  class="label label-theme" >
+		    		{{tag.name}}
+		    	</span>		  	
+	        </span>
+	  `
+	};
+
 
 
 	module.exports = {
 		props: ['project'],
 		components: {
         	"description": description,
+        	"tags": tags
         },
 	}
 </script>

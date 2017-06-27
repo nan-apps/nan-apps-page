@@ -18,11 +18,9 @@
 			<div class="row">
 				<div class="primary col-md-8 col-sm-12 col-xs-12">
 
-					<contact-section v-show="show_contact_section" 
-									 :email="attributes['email']" 
-									 v-on:hide_contact="toggleSection( '#contact-section', false )"
-									 >
-					</contact-section>
+					<router-view id="router-view" :dev_attrs="attributes" >
+						
+					</router-view>
 					
 					<about-section :fetching_attrs="fetching_attrs" :content="attributes['about_me']" :developer="attributes['developer']" >
 					</about-section>

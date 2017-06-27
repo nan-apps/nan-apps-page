@@ -16,6 +16,13 @@ section.section, aside.section, div.section{
     position:relative;
 }
 
+/* Sections */
+.section {
+    .heading {
+        color: @color;
+    }
+}
+
 /* buttons */
 .btn-cta-secondary.active { 
     background: darken(@btn-color-2, 15%);
@@ -25,23 +32,20 @@ section.section, aside.section, div.section{
 /* Projects Section */
 div.project {
     min-height: 450px;    
-}
-div.project div.thumbnail {
-    min-height: 420px;    
-}
-div.project img{
-    border: 1px solid #383535;
-    border-radius: 4px;
-    max-height: 244px;
-    width:100%;
+    
+    div.thumbnail {
+        min-height: 420px;    
+    }
+    img{
+        border: 1px solid #383535;
+        border-radius: 4px;
+        max-height: 244px;
+        width:100%;
+    }
+
 }
 
-/* Sections */
-.section {
-    .heading {
-        color: @color;
-    }
-}
+
 
 /* Info Section */
 
@@ -49,27 +53,7 @@ div.project img{
 /* End info */
 
 
-/*Contact Form*/
-#contact form .glyphicon{
-    
-    color:#737D8C;
-    
-}
 
-#contact form .btn .glyphicon{    
-    color:#fff;    
-}
-
-#contact .modal-title{    
-    font-size: 30px;
-    color:#737D8C;
-}
-
-#contact .alert{
-    background-color: #f7f7ff;
-    color:#737D8C;    
-    margin: auto;
-}
 
 /* transitions */
 .fade-enter-active, .fade-leave-active {

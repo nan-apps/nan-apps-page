@@ -36,6 +36,7 @@ Route::group( [ 'namespace' => 'Api' ], function (){
 		Route::resource('tags', 'TagController');
 		Route::resource('partners', 'PartnerController');
 		Route::resource('hobbies', 'HobbyController');
+		Route::resource('contact_messages', 'ContactMessageController');
 
 	});
 

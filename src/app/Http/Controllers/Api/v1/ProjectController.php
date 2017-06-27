@@ -28,7 +28,7 @@ class ProjectController extends Controller
 
             return $this->model
                         ->with([ 'tags' => function( $query ){
-                            $query->select('key');
+                            $query->select('key', 'name', 'description');
                         }])
                         ->with('partner')
                         ->orderBy('created_at', 'desc')

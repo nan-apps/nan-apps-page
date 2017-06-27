@@ -7,10 +7,18 @@
 
 require('./bootstrap');
 
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate, {
+  locale: 'en',   
+  inject: false
+});
+
+import router from './router';
+
+
 Vue.component('header-section', require('./components/HeaderSection.vue'));
 Vue.component('about-section', require('./components/AboutSection.vue'));
 Vue.component('projects-section', require('./components/ProjectsSection.vue'));
-Vue.component('contact-section', require('./components/ContactSection.vue'));
 
 Vue.component('info-section', require('./components/InfoSection.vue'));
 Vue.component('skills-section', require('./components/SkillsSection.vue'));
@@ -24,26 +32,20 @@ Vue.component('hobbies-section', require('./components/HobbiesSection.vue'));
 Vue.component('loading', require('./components/Loading.vue'));
 Vue.component('section-icon', require('./components/SectionIcon.vue'));
 
-const app = new Vue({
 
+
+const app = new Vue({
+	router,
 	el: '#app',
 	data: {
+		currentRoute: window.location.pathname,
 	    attributes: { birthdate: null, developer: null },	    
-	    fetching_attrs: false,
-	    show_contact_section: false,
+	    fetching_attrs: false
 	},
 	mounted: function() {	    
 	    this.fetchAttributes();	    
 	},
 	methods: {
-		toggleSection: function( target, toggle, event ){
-			if (event) event.preventDefault()
-			this.show_contact_section = toggle;				
-			if( toggle ) 
-				this.$scrollTo( target, 1000/*, duration, options*/);		
-			else
-				this.$scrollTo('body', 1000/*, duration, options*/);		
-		},
 	  	fetchAttributes: function(){
 			var self = this;
 			self.fetching_attrs = true;
@@ -57,7 +59,7 @@ const app = new Vue({
 			  	});
 		},
 		parseResponse: function( response ){			
-			$( response.data ).each(function( i, attr ){    
+			response.data.forEach( function( attr ){    				
 				app.attributes[ attr.key ]  = attr.value;
 			});			
 		}

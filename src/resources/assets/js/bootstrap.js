@@ -20,6 +20,7 @@ require('bootstrap-less');
 window.Vue = require('vue');
 window.VueScrollTo = require('vue-scrollto');
 
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -47,3 +48,5 @@ window.axios.defaults.headers.common = {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+

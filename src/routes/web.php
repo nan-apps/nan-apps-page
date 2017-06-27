@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/contact', 'HomeController@index');
+Route::get('/projects', 'HomeController@index');
