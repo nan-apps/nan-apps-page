@@ -66,6 +66,8 @@ class ContactMessageController extends Controller
 
             $this->model->save();
 
+            //send email
+
             return \Response::json( ['message' => 'created'  ], 201 );
 
         } catch ( ApiException $e ) {                                          

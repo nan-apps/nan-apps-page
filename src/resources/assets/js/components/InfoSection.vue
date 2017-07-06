@@ -8,6 +8,7 @@
             <section-icon icon="address-card" ></section-icon>
 
             <h2 class="heading sr-only">Información Básica</h2>
+
             <div class="content">
                 <ul class="list-unstyled">
 
@@ -16,9 +17,6 @@
                     <li><i class="fa fa-envelope-o"></i><span class="sr-only">Email:</span>
                     	<a :href="'mailto:'+email">{{email}}</a>
                 	</li>
-                    <!-- <li><i class="fa fa-list"></i><span class="sr-only">Portfolio:</span>
-                        <a data-toggle="modal" data-target="#portfolio" href="/portfolio">Portfolio completo</a>
-                    </li> -->
 
                 </ul>
             </div>
@@ -28,8 +26,15 @@
 </template>
 
 <script>
-    module.exports = {
-        props: ['fetching_attrs','location', 'email', 'developer']
+
+    import Loading from './Loading.vue';
+    import SectionIcon from './SectionIcon.vue';
+
+    export default {
+        props:['fetching_attrs', 'location', 'email', 'developer'],
+        components:{
+            Loading, SectionIcon
+        }
 	}
 
 </script>

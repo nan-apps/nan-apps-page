@@ -8,7 +8,7 @@
             <h2 class="heading">
                 Sobre mi
             </h2>
-            <div class="content column" v-html="content">                
+            <div class="content column" v-html="description">                
             </div><!--//content-->
         </div><!--//section-inner-->                 
 
@@ -16,34 +16,23 @@
 </template>
 
 <script>
-	
-    var moment = require('moment');
-    
-    module.exports = {
-        props: ['fetching_attrs','content', 'developer'],                   
-	    computed: {
-	    	age: function(){                
-	    		if( this.birthdate ){
-	    			return moment().diff( this.birthdate , 'years');
-	    		} else {
-	    			return "";
-	    		} 		
-	    	}
-	    }	  
 
+    import Loading from './Loading.vue';
+	
+    export default {
+        props: ['fetching_attrs', 'developer', 'description'],
+        components: { Loading }        
 	}
 
 </script>
 
 <style scoped >
     
-    /* About Section */
     .section.about  .profile-photo{
-      max-width: 40px;
-      position: absolute;
-      right:10px; 
-      top:10px;
+        max-width: 40px;
+        position: absolute;
+        right:10px; 
+        top:10px;
     }
-
 
 </style>

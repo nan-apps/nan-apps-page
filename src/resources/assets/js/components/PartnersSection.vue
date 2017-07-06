@@ -2,7 +2,7 @@
 
 	<aside class="list partners aside section">
 
-		<loading v-if="fetching_data" ></loading>
+		<loading v-if="fetching_partners" ></loading>
 
 
 	    <div v-else class="section-inner">
@@ -25,9 +25,10 @@
 
 <script>
 
-	var mixins = require('./mixins');
+	import Loading from './Loading.vue';
+    import SectionIcon from './SectionIcon.vue';
 
-	var partner = {
+	let Partner = {
     	props: ['partner'],
 	    template: `
 	  	<li>
@@ -39,32 +40,13 @@
 	  `
 	};
 
-    module.exports = {
-        mixins: [ mixins ],
-    	data: function(){
-    		return {    			
-			    partners: [],	    
-			    fetching_data: false
-    		}
-		},
+    export default {
+    	props:['partners', 'fetching_partners'],
         components: {
-        	"partner": partner,
-        },
-        mounted: function() {	    
-        	this.fetchPartners();		    
-		},
-        methods: {
-        	fetchPartners: function(){
-        		var self = this;
-        		self.fetching_data = true;         		
-        		self.fetchData( 'partners', function( response ){
-			    	self.partners = response.data;	
-			    	self.fetching_data = false; 
-			    }, function(){
-			    	self.fetching_data = false;
-			    });	    	
-        	}
-	    }		    	    
+            Loading, 
+            SectionIcon,
+            Partner
+        }    	    
 	}
 
 </script>

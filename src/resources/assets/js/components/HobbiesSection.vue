@@ -2,7 +2,7 @@
 
 	<aside class="list hobbies aside section">
 
-		<loading v-if="fetching_data" ></loading>
+		<loading v-if="fetching_hobbies" ></loading>
 
 
 	    <div v-else class="section-inner">
@@ -25,9 +25,10 @@
 
 <script>
 
-	var mixins = require('./mixins');
+	import Loading from './Loading.vue';
+    import SectionIcon from './SectionIcon.vue';
 
-	var hobby = {
+	let Hobby = {
     	props: ['hobby'],
 	    template: `
 	  	<li>
@@ -42,32 +43,13 @@
 	  `
 	};
 
-    module.exports = {
-        mixins: [ mixins ],
-    	data: function(){
-    		return {    			
-			    hobbies: [],	    
-			    fetching_data: false
-    		}
-		},
+    export default {    	
+        props:['hobbies', 'fetching_hobbies'],
         components: {
-        	"hobby": hobby,
-        },
-        mounted: function() {	    
-        	this.fetchHobbies();		    
-		},
-        methods: {
-        	fetchHobbies: function(){
-        		var self = this;
-        		self.fetching_data = true;         		
-        		self.fetchData( 'hobbies', function( response ){
-			    	self.hobbies = response.data;	
-			    	self.fetching_data = false; 
-			    }, function(){
-			    	self.fetching_data = false;
-			    });	    	
-        	}
-	    }		    	    
+            Loading, 
+            SectionIcon,
+            Hobby
+        }    	    
 	}
 
 </script>

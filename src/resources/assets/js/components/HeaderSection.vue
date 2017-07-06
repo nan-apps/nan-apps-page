@@ -4,11 +4,13 @@
 		<header class="header" >
 		    <div class="container">
 		    	
-		    	<avatar-comp :developer="developer" ></avatar-comp>
+		    	<avatar-comp :developer="developer" >		    		
+		    	</avatar-comp>
 
 		        <div class="profile-content pull-left">
 
-		        	<title-comp :developer="developer" :title="title" ></title-comp>
+		        	<title-comp :developer="developer" :title="title">		        		
+		        	</title-comp>
 		          	
 		          	<social-comp></social-comp>
 		            
@@ -26,7 +28,6 @@
 
 <script>
 	
-
     var avatar_comp = {
     	props: ['developer'],
 	    template: `
@@ -37,11 +38,11 @@
 	};
 
 	var title_comp = {
-		props: ['developer', 'title'],
+		props: ['developer', 'title'],		
 	    template: `
 	    <div>
-	  	<h1 class="name">{{developer}}</h1>
-        <h2 class="desc"><div v-html="title"></div></h2>   
+		  	<h1 class="name">{{developer}}</h1>
+	        <h2 class="desc"><div v-html="title"></div></h2>   
         </div>
 	  `
 	};
@@ -63,8 +64,8 @@
 	  `
 	};
     
-    module.exports = {
-    	props: ['developer', 'title'],    	
+    export default {    
+    	props: ['developer', 'title'],			    	
     	components:{
     		"avatar-comp": avatar_comp,
     		"social-comp": social_comp,

@@ -1,7 +1,7 @@
 <template>
     <section id="projects-section" class="projects section">
 
-    	<loading v-if="fetching_data" ></loading>
+    	<loading v-if="fetching_projects" ></loading>
 
         <div v-else class="section-inner">
 
@@ -10,9 +10,11 @@
             <h2 class="heading">Proyectos</h2>
             <div class="content">    
 
-            	<filter-tags :fetching_projects="fetching_data" 
-            				 :default_filter_tag="default_filter_tag" 
-            				  @filter_projects_by_tag="filterByTag" >            		
+            	<filter-tags :fetching_data="fetching_projects || fetching_projects_tags"
+                             :tags="orderedTags"
+                             :active_filter_tag="active_filter_tag" 
+                             :filterActivator="activateFilterTag"
+                             >            		
             	</filter-tags>
 
             	<hr/>
@@ -28,73 +30,49 @@
 
 <script>
 
-	var moment = require('moment');
-	var mixins = require('./mixins');
-	var filter_tags = require('./FilterTags');
-	var project = require('./ProjectItem');
+	import Vuex from 'vuex';
 
-    module.exports = {
-        mixins: [ mixins ],
+	import FilterTags from './FilterTags';
+	import Project from './ProjectItem';
+    import Loading from './Loading.vue';
+    import SectionIcon from './SectionIcon.vue';
+
+    export default  {
     	data: function(){
-    		return {    			
-			    projects: [],	    
-			    default_filter_tag: 'highlighted',
-			    active_filter: '',
-			    fetching_data: false,
-    		}
+    		return {}
 		},
         components: {
-        	"project": project,
-        	"filter-tags": filter_tags
+        	Project,
+        	FilterTags,
+            Loading,
+            SectionIcon
         },
         mounted: function() {	    
-        	this.fetchProjects();		    
+        	this.$store.dispatch('LOAD_PROJECTS');
+            this.$store.dispatch('LOAD_PROJECTS_TAGS');
+        	this.$store.dispatch('CHOOSE_DEFAULT_ACTIVE_FILTER_TAG', { tag_key: 'highlighted'} );
 		},
-		computed: {
-			filteredProjects: function(){				
-				
-				var self = this;
-				console.log( this.active_filter );
+		computed: Object.assign(
+			
+			Vuex.mapState({
+				projects: (state) => { return state.projects.items },
+				default_filter_tag: state => state.projects.default_filter_tag,
+				active_filter_tag: state => state.projects.active_filter_tag,
+				fetching_projects: state => state.projects.fetching_data,				
+                fetching_projects_tags: state => state.projects.tags.fetching_data,               
+			}),
+			Vuex.mapGetters([
+				'filteredProjects',
+                'orderedTags'
+			])
 
-				if( !this.active_filter || this.active_filter == 'all' ){
-					return this.projects;
-				} else {
-
-					//filtro con lodash
-					var filtered = _.filter( self.projects, function( project ) {
-					  return _.includes( _.map( project.tags, 'key'), self.active_filter );
-					});
-
-					//filtro vainilla
-					/*var filtered = this.projects.filter( function(obj) {
-						var ctrl = false;	
-						obj.tags.forEach(function( o ){
-							if( !ctrl ){
-								ctrl = o.key == self.active_filter;	
-							} 
-						});						
-					    return ctrl;
-					});*/
-
-					return filtered;
-				}
-			}
-		},
+		),		
         methods: {
-        	fetchProjects(){
-        		var self = this;
-        		self.fetching_data = true;         		
-        		self.fetchData( 'projects', function( response ){
-			    	self.projects = response.data;	
-			    	self.fetching_data = false; 
-			    }, function(){
-			    	self.fetching_data = false;
-			    });	    	
-        	},
-        	filterByTag( tag_key ){
-        		this.active_filter = tag_key;		
-        	}
-	    }		    	    
+            activateFilterTag( tag_key ){
+                this.$store.dispatch('CHANGE_ACTIVE_FILTER_TAG', {tag_key});
+            }
+	    }
+
 	}
 
 </script>

@@ -111,9 +111,12 @@
 </template>
 
 <script>
+	
+	import SectionIcon from './SectionIcon.vue';
 
-    module.exports = {
+    export default {
     	$validates: true,
+    	props: ['dev_attrs'],
     	data: function(){
     		return {
     			show_msg: false,
@@ -124,8 +127,10 @@
     			user_message_icon: "",
     			user_message_class: ""
     		}
+    	},        
+    	components:{
+    		SectionIcon
     	},
-        props: ['dev_attrs'],  
         mounted: function(){
         	this.scroll();		
         },    
@@ -134,7 +139,7 @@
         	validateData( field_name ){
 
         		return this.errors.has( field_name ) ? { 'class': 'has-error', 'icon': 'fa-times'} 
-													     : { 'class': 'has-succcess', 'icon': 'fa-check'};
+													 : { 'class': 'has-succcess', 'icon': 'fa-check'};
 				
 			},
         	scroll(){
@@ -145,7 +150,7 @@
 				var err_msg = "Hubo algun error al enviar el contacto, si podés volvé a intentar o escribime a "+this.dev_attrs.email;	
 
 				this.$validator.validateAll().then( (result) => {
-					if( result ){						
+					if( result ){	
 				    	axios.post('/api/v1/contact_messages', {
 						    email: this.form_email,
 						    name: this.form_name,
