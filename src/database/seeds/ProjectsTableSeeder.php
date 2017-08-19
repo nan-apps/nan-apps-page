@@ -161,6 +161,27 @@ class ProjectsTableSeeder extends Seeder
                     'img_ext' => 'png',
                     'partner_id' => $wecode
                 ],
+                [
+                    'key' => 'afip_client',
+                    'name' => 'AfipClient',
+                    'short_desc' => 'Clases para interactuar con los servicios de afip',
+                    'long_desc' => 'Libreria open source para interactuar con servicios de facturacion electronica de afip',
+                    'link' => null,
+                    'github_link' => 'https://github.com/nan-apps/AfipClient',
+                    'has_full_img' => false,
+                    'img_ext' => 'png'
+                ],
+                [
+                    'key' => 'google_client',
+                    'name' => 'GoogleClient',
+                    'short_desc' => 'Clases para interactuar con la api de google',
+                    'long_desc' => 'Libreria open source para interactuar con los servicios de google calendar.',
+                    'link' => null,
+                    'github_link' => 'https://github.com/nan-apps/GoogleClient',
+                    'has_full_img' => false,
+                    'img_ext' => 'png'
+                ],
+
             ]   
         );
     }

@@ -48,6 +48,10 @@ class ProjectTagTableSeeder extends Seeder
 
         App\Project::where('key', 'we_avatar')->first()->tags()->attach([ $research, $opensource ]);
 
+        App\Project::where('key', 'afip_client')->first()->tags()->attach([ $research, $opensource ]);
+
+        App\Project::where('key', 'google_client')->first()->tags()->attach([ $research, $opensource ]);
+
 
 
     }
