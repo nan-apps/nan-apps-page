@@ -169,7 +169,8 @@ class ProjectsTableSeeder extends Seeder
                     'link' => null,
                     'github_link' => 'https://github.com/nan-apps/AfipClient',
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],
                 [
                     'key' => 'google_client',
@@ -179,7 +180,8 @@ class ProjectsTableSeeder extends Seeder
                     'link' => null,
                     'github_link' => 'https://github.com/nan-apps/GoogleClient',
                     'has_full_img' => false,
-                    'img_ext' => 'png'
+                    'img_ext' => 'png',
+                    'partner_id' => null
                 ],
 
             ]   
