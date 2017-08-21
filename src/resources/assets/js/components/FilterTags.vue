@@ -45,7 +45,7 @@
 	};
 
 	export default {
-    	props: ['fetching_data'
+    	props: ['fetching_data',
     			'tags', 
     			'active_filter_tag',
     			'filterActivator'],
