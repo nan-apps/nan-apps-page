@@ -4,7 +4,7 @@
 	        <div class="col-md-4 col-sm-4 col-xs-12 text-center " >
 	            <img v-if="project.img_ext" 
 	            	 class="img-responsive project-image" 
-	            	 :src="'/img/'+project.key+'_thumb.'+project.img_ext" 
+	            	 :src="'/img/projects/'+project.key+'_thumb.'+project.img_ext" 
 	            	 :alt="project.name" />
 
 	            <i v-else="" class="fa fa-code fa-5x fa-border"></i>

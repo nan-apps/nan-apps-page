@@ -66111,7 +66111,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(_vm.project.img_ext) ? _c('img', {
     staticClass: "img-responsive project-image",
     attrs: {
-      "src": '/img/' + _vm.project.key + '_thumb.' + _vm.project.img_ext,
+      "src": '/img/projects/' + _vm.project.key + '_thumb.' + _vm.project.img_ext,
       "alt": _vm.project.name
     }
   }) : _c('i', {
