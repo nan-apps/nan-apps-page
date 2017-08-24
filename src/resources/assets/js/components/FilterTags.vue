@@ -37,7 +37,7 @@
     	},
 	    template: `
 	  	<a :title="tag.description" 
-	  	   :class="['btn', 'btn-cta-secondary', {'active':active}]" href="#"
+	  	   :class="['btn', 'btn-cta-secondary', {'active':active}, tag.css_class]" href="#"
 	  	    @click.prevent.stop="activateMe" >
 	  	    {{tag.name}} <i v-show="active" class="fa fa-check" ></i>
 		</a>

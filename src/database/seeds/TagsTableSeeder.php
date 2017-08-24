@@ -62,6 +62,13 @@ class TagsTableSeeder extends Seeder
                     'css_class' => 'label-highlighted',
                     'order' => 1000
                 ],
+                [
+                    'key' => 'library',
+                    'name' => 'Librería',
+                    'description' => 'Libreria',
+                    'css_class' => 'label-library',
+                    'order' => 710
+                ],
 
             ]
         );

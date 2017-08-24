@@ -65951,7 +65951,7 @@ var Tag = {
       this.filterActivator(this.tag.key);
     }
   },
-  template: '\n\t  \t<a :title="tag.description" \n\t  \t   :class="[\'btn\', \'btn-cta-secondary\', {\'active\':active}]" href="#"\n\t  \t    @click.prevent.stop="activateMe" >\n\t  \t    {{tag.name}} <i v-show="active" class="fa fa-check" ></i>\n\t\t</a>\n\t  '
+  template: '\n\t  \t<a :title="tag.description" \n\t  \t   :class="[\'btn\', \'btn-cta-secondary\', {\'active\':active}, tag.css_class]" href="#"\n\t  \t    @click.prevent.stop="activateMe" >\n\t  \t    {{tag.name}} <i v-show="active" class="fa fa-check" ></i>\n\t\t</a>\n\t  '
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -66072,6 +66072,13 @@ module.exports = Component.exports
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 var description = {
@@ -66100,13 +66107,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "item row"
   }, [_c('div', {
-    staticClass: "col-md-4 col-sm-4 col-xs-12"
-  }, [_c('img', {
+    staticClass: "col-md-4 col-sm-4 col-xs-12 text-center "
+  }, [(_vm.project.img_ext) ? _c('img', {
     staticClass: "img-responsive project-image",
     attrs: {
-      "src": '/img/' + _vm.project.key + '_thumb.png',
+      "src": '/img/' + _vm.project.key + '_thumb.' + _vm.project.img_ext,
       "alt": _vm.project.name
     }
+  }) : _c('i', {
+    staticClass: "fa fa-code fa-5x fa-border"
   })]), _vm._v(" "), _c('div', {
     staticClass: "desc col-md-8 col-sm-8 col-xs-12"
   }, [_c('h3', {
@@ -67994,17 +68003,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var filteredProjects = function filteredProjects(state) {
+
+	var items = {};
+
 	if (!state.projects.active_filter_tag || state.projects.active_filter_tag == 'all') {
-		return state.projects.items;
+		items = state.projects.items;
 	} else {
 
 		//filtro con lodash
-		var filtered = _.filter(state.projects.items, function (project) {
+		items = _.filter(state.projects.items, function (project) {
 			return _.includes(_.map(project.tags, 'key'), state.projects.active_filter_tag);
 		});
-
-		return filtered;
 	}
+
+	return _.orderBy(items, 'created_at', 'desc');
 };
 
 var orderedTags = function orderedTags(state) {

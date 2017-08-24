@@ -20,6 +20,7 @@ class ProjectTagTableSeeder extends Seeder
         $research = App\Tag::where('key', 'research')->first()->id;
         $abml = App\Tag::where('key', 'abml')->first()->id;
         $highlighted = App\Tag::where('key', 'highlighted')->first()->id;
+        $library = App\Tag::where('key', 'library')->first()->id;
 
         //asigno tags a proyectos
         App\Project::where('key', 'kuruf')->first()->tags()->attach([ $responsive, $abml, $highlighted ]);
@@ -32,7 +33,7 @@ class ProjectTagTableSeeder extends Seeder
 
         App\Project::where('key', 'opciones')->first()->tags()->attach([ $responsive, $abml ]);
 
-        App\Project::where('key', 'gestorauto')->first()->tags()->attach([ $responsive, $abml, $highlighted ]);
+        App\Project::where('key', 'gestorauto')->first()->tags()->attach([ $responsive, $abml ]);
 
         App\Project::where('key', 'roo')->first()->tags()->attach([ $abml ]);
 
@@ -46,13 +47,11 @@ class ProjectTagTableSeeder extends Seeder
 
         App\Project::where('key', 'treefractalgenerator')->first()->tags()->attach([ $research, $opensource ]);
 
-        App\Project::where('key', 'we_avatar')->first()->tags()->attach([ $research, $opensource ]);
+        App\Project::where('key', 'we_avatar')->first()->tags()->attach([ $opensource, $library ]);
 
-        App\Project::where('key', 'afip_client')->first()->tags()->attach([ $research, $opensource ]);
+        App\Project::where('key', 'afip_client')->first()->tags()->attach([ $opensource, $highlighted, $library]);
 
-        App\Project::where('key', 'google_client')->first()->tags()->attach([ $research, $opensource ]);
-
-
+        App\Project::where('key', 'google_client')->first()->tags()->attach([ $opensource, $library ]);
 
     }
 }

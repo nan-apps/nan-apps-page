@@ -27,7 +27,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => null,
                     'has_full_img' => true,
                     'img_ext' => 'png',
-                    'partner_id' => $wecode                    
+                    'partner_id' => $wecode,
+                    'created_at' => '2017-08-01'                    
             	],
                 [
                     'key' => 'fe',
@@ -38,7 +39,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => null,
                     'has_full_img' => false,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2017-07-01'
                 ],
                 [
                     'key' => 'flowmax',
@@ -49,7 +51,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => '',
                     'has_full_img' => false,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2016-01-01'
                 ],          
                 [
                     'key' => 'socol',
@@ -60,7 +63,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => null,
                     'has_full_img' => false,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2016-01-01'
                 ],
                 [
                     'key' => 'opciones',
@@ -71,7 +75,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => null,
                     'has_full_img' => true,
                     'img_ext' => 'png',
-                    'partner_id' => $tinka
+                    'partner_id' => $tinka,
+                    'created_at' => '2016-01-01'
                 ],
                 [
                     'key' => 'roo',
@@ -82,7 +87,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => null,
                     'has_full_img' => false,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2016-01-01'
                 ],                
                 [
                     'key' => 'lemon',
@@ -93,7 +99,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => null,
                     'has_full_img' => false,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2016-01-01'
                 ],
                 [
                     'key' => 'processing_experiments',
@@ -104,7 +111,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => 'https://github.com/nan-apps/processing_projects',
                     'has_full_img' => true,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2016-01-01'
                 ],
                 [
                     'key' => 'openfights',
@@ -115,7 +123,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => 'https://github.com/nan-apps/OpenFights',
                     'has_full_img' => false,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2016-01-01'
                 ],
                 [
                     'key' => 'clonoluchas',
@@ -126,7 +135,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => 'https://github.com/nan-apps/clonoluchas',
                     'has_full_img' => false,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2017-06-01 23:08:45'
                 ],
                 [
                     'key' => 'treefractalgenerator',
@@ -137,7 +147,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => 'https://github.com/nan-apps/TreeFractalGenerator',
                     'has_full_img' => false,
                     'img_ext' => 'png',
-                    'partner_id' => null
+                    'partner_id' => null,
+                    'created_at' => '2016-01-01'
                 ],
                 [
                     'key' => 'gestorauto',
@@ -148,7 +159,8 @@ class ProjectsTableSeeder extends Seeder
                     'github_link' => null,
                     'has_full_img' => true,
                     'img_ext' => 'png',
-                    'partner_id' => $tinka
+                    'partner_id' => $tinka,
+                    'created_at' => '2016-01-01'
                 ],
                 [
                     'key' => 'we_avatar',
@@ -158,8 +170,9 @@ class ProjectsTableSeeder extends Seeder
                     'link' => 'http://blog.wecode.io/we_avatar/demo.html',
                     'github_link' => 'https://github.com/nan-apps/we_avatar',
                     'has_full_img' => false,
-                    'img_ext' => 'png',
-                    'partner_id' => $wecode
+                    'img_ext' => null,
+                    'partner_id' => $wecode,
+                    'created_at' => '2016-01-01'
                 ],
                 [
                     'key' => 'afip_client',
@@ -169,8 +182,9 @@ class ProjectsTableSeeder extends Seeder
                     'link' => null,
                     'github_link' => 'https://github.com/nan-apps/AfipClient',
                     'has_full_img' => false,
-                    'img_ext' => 'png',
-                    'partner_id' => null
+                    'img_ext' => null,
+                    'partner_id' => null,
+                    'created_at' => '2017-06-01'
                 ],
                 [
                     'key' => 'google_client',
@@ -180,8 +194,9 @@ class ProjectsTableSeeder extends Seeder
                     'link' => null,
                     'github_link' => 'https://github.com/nan-apps/GoogleClient',
                     'has_full_img' => false,
-                    'img_ext' => 'png',
-                    'partner_id' => null
+                    'img_ext' => null,
+                    'partner_id' => null,
+                    'created_at' => '2016-01-01'
                 ],
 
             ]   

@@ -1,17 +1,20 @@
 import moment from 'moment';
 
-export const filteredProjects = state => {		
+export const filteredProjects = state => {	
+
+	let items = {};
+
 	if( !state.projects.active_filter_tag || state.projects.active_filter_tag == 'all' ){
-		return state.projects.items;
+		items = state.projects.items;
 	} else {
 
 		//filtro con lodash
-		var filtered = _.filter( state.projects.items,  (project) => {
+		items = _.filter( state.projects.items,  (project) => {
 		  return _.includes( _.map( project.tags, 'key'), state.projects.active_filter_tag );
 		});
-
-		return filtered;
 	}
+
+	return _.orderBy( items, 'created_at', 'desc' );
 }
 
 export const orderedTags = (state) => {
