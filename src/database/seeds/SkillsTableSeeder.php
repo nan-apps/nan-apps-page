@@ -36,7 +36,7 @@ class SkillsTableSeeder extends Seeder
                 'key' => 'js',
             	'order' => 800,
                 'start_date' => '2009-09-01',
-                'name' => 'JavaScript & Jquery',
+                'name' => 'JavaScript',
                 'level' => 70,
                 'info' => null,
             ],
