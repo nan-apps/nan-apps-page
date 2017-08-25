@@ -112,6 +112,7 @@
 
 <script>
 	
+	import router from '../router';
 	import SectionIcon from './SectionIcon.vue';
 
     export default {
@@ -149,30 +150,54 @@
 
 				var err_msg = "Hubo algun error al enviar el contacto, si podés volvé a intentar o escribime a "+this.dev_attrs.email;	
 
+				this.alertBox( "Estamos enviando tu contacto", 
+					           "fa-refresh fa-spin", 
+					           "alert-info" );
+
 				this.$validator.validateAll().then( (result) => {
 					if( result ){	
 				    	axios.post('/api/v1/contact_messages', {
 						    email: this.form_email,
 						    name: this.form_name,
 						    message: this.form_message,
-							}).then( (response) => {							
-							    this.user_message = "Gracias por contactarte, ni bien pueda te respondo. Saludos!";
-							    this.user_message_icon = "fa-check";
-							    this.user_message_class = "alert-success";
+							}).then( (response) => {	
+								
+								if( response.data.message == "created" ){
+								    
+								    this.alertBox( "Gracias por contactarte, ni bien pueda te respondo. Saludos!", 
+										           "fa-check", 
+										           "alert-success" );
+
+								    setTimeout(function(){
+								    	router.push('/');
+								    }, 3000);
+
+								} else {
+									this.alertBox( err_msg, 
+										           "fa-remove", 
+										           "alert-danger" );									
+								}
+
 							})
 							.catch( (error) => {
-							    this.user_message = err_msg;
-							    this.user_message_icon = "fa-remove";
-							    this.user_message_class = "alert-danger";
+							    this.alertBox( err_msg, 
+										       "fa-remove", 
+										       "alert-danger" );
 						    });	
 					}
 
 			    }).catch( () => {
-			    	this.user_message = err_msg;
-			    	this.user_message_icon = "fa-remove";
-			    	this.user_message_class = "alert-danger";
+			    	this.alertBox( err_msg, 
+							       "fa-remove", 
+							       "alert-danger" );
 			    });
 
+			},
+
+			alertBox( message, icon, alert_class ){
+				this.user_message = message;
+			    this.user_message_icon = icon;
+				this.user_message_class = alert_class;
 			}
 
         }

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api\v1;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Validator;
 use App\ContactMessage;
+use App\Mail\SendContact;
 use App\Http\Controllers\Controller;
 use App\Exceptions\ApiException;
 
@@ -66,7 +68,8 @@ class ContactMessageController extends Controller
 
             $this->model->save();
 
-            //send email
+            //Send email!
+            $rsp = Mail::to( env('MAIL_TO_ADDRESS') )->send( new SendContact($this->model) );
 
             return \Response::json( ['message' => 'created'  ], 201 );
 

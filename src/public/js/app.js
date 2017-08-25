@@ -67221,8 +67221,9 @@ exports.push([module.i, "\n.section-icon[data-v-1b49fc9e]{\n\tcursor: pointer;\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SectionIcon_vue__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SectionIcon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__SectionIcon_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SectionIcon_vue__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SectionIcon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__SectionIcon_vue__);
 //
 //
 //
@@ -67335,6 +67336,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -67354,7 +67356,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	components: {
-		SectionIcon: __WEBPACK_IMPORTED_MODULE_0__SectionIcon_vue___default.a
+		SectionIcon: __WEBPACK_IMPORTED_MODULE_1__SectionIcon_vue___default.a
 	},
 	mounted: function mounted() {
 		this.scroll();
@@ -67372,6 +67374,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			var err_msg = "Hubo algun error al enviar el contacto, si podés volvé a intentar o escribime a " + this.dev_attrs.email;
 
+			this.alertBox("Estamos enviando tu contacto", "fa-refresh fa-spin", "alert-info");
+
 			this.$validator.validateAll().then(function (result) {
 				if (result) {
 					axios.post('/api/v1/contact_messages', {
@@ -67379,20 +67383,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 						name: _this.form_name,
 						message: _this.form_message
 					}).then(function (response) {
-						_this.user_message = "Gracias por contactarte, ni bien pueda te respondo. Saludos!";
-						_this.user_message_icon = "fa-check";
-						_this.user_message_class = "alert-success";
+
+						if (response.data.message == "created") {
+
+							_this.alertBox("Gracias por contactarte, ni bien pueda te respondo. Saludos!", "fa-check", "alert-success");
+
+							setTimeout(function () {
+								__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/');
+							}, 3000);
+						} else {
+							_this.alertBox(err_msg, "fa-remove", "alert-danger");
+						}
 					}).catch(function (error) {
-						_this.user_message = err_msg;
-						_this.user_message_icon = "fa-remove";
-						_this.user_message_class = "alert-danger";
+						_this.alertBox(err_msg, "fa-remove", "alert-danger");
 					});
 				}
 			}).catch(function () {
-				_this.user_message = err_msg;
-				_this.user_message_icon = "fa-remove";
-				_this.user_message_class = "alert-danger";
+				_this.alertBox(err_msg, "fa-remove", "alert-danger");
 			});
+		},
+		alertBox: function alertBox(message, icon, alert_class) {
+			this.user_message = message;
+			this.user_message_icon = icon;
+			this.user_message_class = alert_class;
 		}
 	}
 });
