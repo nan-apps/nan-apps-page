@@ -78,8 +78,7 @@ class ContactMessageController extends Controller
             return \Response::json(['error' => true, 
                                     'message' => $e->getMessage() ], $e->getStatusCode());
         } catch ( \Exception $e ) {                        
-            \Log::info('Error guardando mensaje de contacto: '.$e);            
-            if( env('APP_DEBUG') ) dd($e);
+            \Log::info('Error guardando mensaje de contacto: '.$e);                        
             return \Response::json(['error' => true, 
                                     'message' => 'Error 500' ], 500);
         }
