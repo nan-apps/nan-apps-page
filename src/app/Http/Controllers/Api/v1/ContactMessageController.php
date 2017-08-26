@@ -69,10 +69,10 @@ class ContactMessageController extends Controller
             $this->model->save();
 
             //Send email!
-//            $rsp = Mail::to( env('MAIL_TO_ADDRESS') )->send( new SendContact($this->model) );
+            Mail::to( Config('mail.to') )->subject("Contacto Nan-Apps Web")
+                                         ->send( new SendContact($this->model) );
 
-
-            return \Response::json( ['message' => env('MAIL_TO_ADDRESS')  ], 201 );
+            return \Response::json( ['message' => 'created'  ], 201 );
 
         } catch ( ApiException $e ) {                                          
             \Log::info('Error guardando mensaje de contacto: '.$e);            
