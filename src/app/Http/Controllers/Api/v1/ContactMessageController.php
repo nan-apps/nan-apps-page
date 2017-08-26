@@ -69,8 +69,13 @@ class ContactMessageController extends Controller
             $this->model->save();
 
             //Send email!
-            Mail::to( Config('mail.to') )->subject("Contacto Nan-Apps Web")
-                                         ->send( new SendContact($this->model) );
+            Mail::send( new SendContact($this->model), [], function( $msg ){
+                $msg->subject("Contacto Nan-Apps Web"); 
+                $msg->to(Config('mail.to'));
+            });
+
+            /*Mail::to( Config('mail.to') )->subject("Contacto Nan-Apps Web")
+                                         ->send( new SendContact($this->model) );*/
 
             return \Response::json( ['message' => 'created'  ], 201 );
 
