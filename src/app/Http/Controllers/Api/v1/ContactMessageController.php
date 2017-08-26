@@ -69,7 +69,7 @@ class ContactMessageController extends Controller
             $this->model->save();
 
             //Send email!
-            $rsp = Mail::to( env('MAIL_TO_ADDRESS') )->send( new SendContact($this->model) );
+            $rsp = Mail::to( 'nangastonr@gmail.com' )->send( new SendContact($this->model) );
 
             return \Response::json( ['message' => 'created'  ], 201 );
 
