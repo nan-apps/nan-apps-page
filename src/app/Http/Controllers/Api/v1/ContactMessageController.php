@@ -75,7 +75,7 @@ class ContactMessageController extends Controller
             });*/
 
             Mail::to( Config('mail.to') )
-                 ->queue(new SendContact($this->model));
+                 ->send(new SendContact($this->model));
 
             /*Mail::to( Config('mail.to') )->subject("Contacto Nan-Apps Web")
                                          ->send( new SendContact($this->model) );*/
