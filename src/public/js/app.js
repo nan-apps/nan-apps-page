@@ -67752,6 +67752,7 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mutations__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__actions__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__getters__ = __webpack_require__(212);
 
 
@@ -67898,16 +67899,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHOOSE_DEFAULT_ACTIVE_FILTER_TAG", function() { return CHOOSE_DEFAULT_ACTIVE_FILTER_TAG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_ACTIVE_FILTER_TAG", function() { return CHANGE_ACTIVE_FILTER_TAG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEND_CONTACT_MESSAGE", function() { return SEND_CONTACT_MESSAGE; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services__ = __webpack_require__(228);
+
+
 var LOAD_ATTRIBUTES = function LOAD_ATTRIBUTES(_ref) {
 	var commit = _ref.commit;
 
 	commit('FETCHING_ATTRS', true);
-	axios.get('/api/v1/attributes').then(function (response) {
-		var items = {};
-		response.data.forEach(function (attr) {
-			items[attr.key] = attr.value;
-		});
-		commit('SET_ATTRIBUTES', { items: items });
+	__WEBPACK_IMPORTED_MODULE_0__services__["a" /* getAttributesFromApi */]().then(function (response) {
+		commit('SET_ATTRIBUTES', { items: response });
 		commit('FETCHING_ATTRS', false);
 	}, function (err) {
 		console.log(err);
@@ -67919,8 +67919,8 @@ var LOAD_PROJECTS = function LOAD_PROJECTS(_ref2) {
 	var commit = _ref2.commit;
 
 	commit('FETCHING_PROJECTS', true);
-	axios.get('/api/v1/projects').then(function (response) {
-		commit('SET_PROJECTS', { items: response.data });
+	__WEBPACK_IMPORTED_MODULE_0__services__["e" /* getProjectsFromApi */]().then(function (response) {
+		commit('SET_PROJECTS', { items: response });
 		commit('FETCHING_PROJECTS', false);
 	}, function (err) {
 		console.log(err);
@@ -67932,8 +67932,8 @@ var LOAD_PROJECTS_TAGS = function LOAD_PROJECTS_TAGS(_ref3) {
 	var commit = _ref3.commit;
 
 	commit('FETCHING_PROJECTS_TAGS', true);
-	axios.get('/api/v1/tags').then(function (response) {
-		commit('SET_PROJECTS_TAGS', { items: response.data });
+	__WEBPACK_IMPORTED_MODULE_0__services__["d" /* getProjectTagsFromApi */]().then(function (response) {
+		commit('SET_PROJECTS_TAGS', { items: response });
 		commit('FETCHING_PROJECTS_TAGS', false);
 	}, function (err) {
 		console.log(err);
@@ -67945,8 +67945,8 @@ var LOAD_HOBBIES = function LOAD_HOBBIES(_ref4) {
 	var commit = _ref4.commit;
 
 	commit('FETCHING_HOBBIES', true);
-	axios.get('/api/v1/hobbies').then(function (response) {
-		commit('SET_HOBBIES', { items: response.data });
+	__WEBPACK_IMPORTED_MODULE_0__services__["b" /* getHobbiesFromApi */]().then(function (response) {
+		commit('SET_HOBBIES', { items: response });
 		commit('FETCHING_HOBBIES', false);
 	}, function (err) {
 		console.log(err);
@@ -67958,8 +67958,8 @@ var LOAD_SKILLS = function LOAD_SKILLS(_ref5) {
 	var commit = _ref5.commit;
 
 	commit('FETCHING_SKILLS', true);
-	axios.get('/api/v1/skills').then(function (response) {
-		commit('SET_SKILLS', { items: response.data });
+	__WEBPACK_IMPORTED_MODULE_0__services__["f" /* getSkillsFromApi */]().then(function (response) {
+		commit('SET_SKILLS', { items: response });
 		commit('FETCHING_SKILLS', false);
 	}, function (err) {
 		console.log(err);
@@ -67971,8 +67971,8 @@ var LOAD_PARTNERS = function LOAD_PARTNERS(_ref6) {
 	var commit = _ref6.commit;
 
 	commit('FETCHING_PARTNERS', true);
-	axios.get('/api/v1/partners').then(function (response) {
-		commit('SET_PARTNERS', { items: response.data });
+	__WEBPACK_IMPORTED_MODULE_0__services__["c" /* getPartnersFromApi */]().then(function (response) {
+		commit('SET_PARTNERS', { items: response });
 		commit('FETCHING_PARTNERS', false);
 	}, function (err) {
 		console.log(err);
@@ -68054,6 +68054,79 @@ var skillsDescription = function skillsDescription(state) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getAttributesFromApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getProjectsFromApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getProjectTagsFromApi; });
+/* unused harmony export getProjectHobbiesFromApi */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getHobbiesFromApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return getSkillsFromApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getPartnersFromApi; });
+var getAttributesFromApi = function getAttributesFromApi() {
+
+    return axios.get('/api/v1/attributes').then(function (response) {
+        var items = {};
+        response.data.forEach(function (attr) {
+            items[attr.key] = attr.value;
+        });
+        return items;
+    });
+};
+
+var getProjectsFromApi = function getProjectsFromApi() {
+    return axios.get('/api/v1/projects').then(function (response) {
+        return response.data;
+    });
+};
+
+var getProjectTagsFromApi = function getProjectTagsFromApi() {
+    return axios.get('/api/v1/tags').then(function (response) {
+        return response.data;
+    });
+};
+
+var getProjectHobbiesFromApi = function getProjectHobbiesFromApi() {
+    return axios.get('/api/v1/hobbies').then(function (response) {
+        return response.data;
+    });
+};
+
+var getHobbiesFromApi = function getHobbiesFromApi() {
+    return axios.get('/api/v1/hobbies').then(function (response) {
+        return response.data;
+    });
+};
+
+var getSkillsFromApi = function getSkillsFromApi() {
+    return axios.get('/api/v1/skills').then(function (response) {
+        return response.data;
+    });
+};
+
+var getPartnersFromApi = function getPartnersFromApi() {
+    return axios.get('/api/v1/partners').then(function (response) {
+        return response.data;
+    });
+};
 
 /***/ })
 /******/ ]);

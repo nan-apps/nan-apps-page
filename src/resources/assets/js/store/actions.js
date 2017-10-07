@@ -1,22 +1,21 @@
-export const LOAD_ATTRIBUTES = ({ commit }) => {
+import * as services from '../services';
+
+export const LOAD_ATTRIBUTES = ({ commit }) => {	
 	commit( 'FETCHING_ATTRS', true  );
-  	axios.get('/api/v1/attributes').then( (response) => {	      	
-  		let items = {};
-	  	response.data.forEach( function( attr ){    				
-			items[ attr.key ]  = attr.value;
-		});	
-    	commit( 'SET_ATTRIBUTES', { items: items });
+  	services.getAttributesFromApi().then( (response) => {	      	  		
+    	commit( 'SET_ATTRIBUTES', { items: response });
     	commit( 'FETCHING_ATTRS', false  );
   	}, (err) => {
     	console.log(err);
     	commit( 'FETCHING_ATTRS', false  );
   	});
+
 }
 
 export const LOAD_PROJECTS = ({ commit }) => {
 	commit( 'FETCHING_PROJECTS', true  );
-	axios.get('/api/v1/projects').then( (response) => {
-		commit( 'SET_PROJECTS', { items: response.data });
+	services.getProjectsFromApi().then( (response) => {
+		commit( 'SET_PROJECTS', { items: response });
 		commit( 'FETCHING_PROJECTS', false  );
 	}, (err) => {
 		console.log(err);
@@ -26,8 +25,8 @@ export const LOAD_PROJECTS = ({ commit }) => {
 
 export const LOAD_PROJECTS_TAGS = ({ commit }) => {
 	commit( 'FETCHING_PROJECTS_TAGS', true  );
-	axios.get('/api/v1/tags').then( (response) => {
-		commit( 'SET_PROJECTS_TAGS', { items: response.data });
+	services.getProjectTagsFromApi().then( (response) => {
+		commit( 'SET_PROJECTS_TAGS', { items: response });
 		commit( 'FETCHING_PROJECTS_TAGS', false  );
 	}, (err) => {
 		console.log(err);
@@ -37,8 +36,8 @@ export const LOAD_PROJECTS_TAGS = ({ commit }) => {
 
 export const LOAD_HOBBIES = ({ commit }) => {
 	commit( 'FETCHING_HOBBIES', true  );
-	axios.get('/api/v1/hobbies').then( (response) => {
-		commit( 'SET_HOBBIES', { items: response.data });
+	services.getHobbiesFromApi().then( (response) => {
+		commit( 'SET_HOBBIES', { items: response });
 		commit( 'FETCHING_HOBBIES', false  );
 	}, (err) => {
 		console.log(err);
@@ -48,8 +47,8 @@ export const LOAD_HOBBIES = ({ commit }) => {
 
 export const LOAD_SKILLS = ({ commit }) => {
 	commit( 'FETCHING_SKILLS', true  );
-	axios.get('/api/v1/skills').then( (response) => {
-		commit( 'SET_SKILLS', { items: response.data });
+	services.getSkillsFromApi().then( (response) => {
+		commit( 'SET_SKILLS', { items: response });
 		commit( 'FETCHING_SKILLS', false  );
 	}, (err) => {
 		console.log(err);
@@ -59,8 +58,8 @@ export const LOAD_SKILLS = ({ commit }) => {
 
 export const LOAD_PARTNERS = ({ commit }) => {
 	commit( 'FETCHING_PARTNERS', true  );
-	axios.get('/api/v1/partners').then( (response) => {
-		commit( 'SET_PARTNERS', { items: response.data });
+	services.getPartnersFromApi().then( (response) => {
+		commit( 'SET_PARTNERS', { items: response });
 		commit( 'FETCHING_PARTNERS', false  );
 	}, (err) => {
 		console.log(err);
