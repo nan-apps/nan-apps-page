@@ -58,7 +58,7 @@
         	</li>
             <!--<li><a target="_blank" href="https://www.facebook.com/nan.apps.web"><i class="fa fa-facebook"></i></a></li>-->
             <li>
-            	<a title="Tumblr" target="_blank" href="http://gnan-blog.tumblr.com/"><i class="fa fa-tumblr"></i></a>
+            	<a title="Blog" target="_blank" href="https://formento.nan-apps.com/"><i class="fa fa-rss"></i></a>
         	</li>
         </ul> 
 	  `

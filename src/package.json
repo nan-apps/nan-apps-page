@@ -12,23 +12,23 @@
   "devDependencies": {
     "axios": "^0.15.3",
     "bootstrap-less": "^3.3.8",
-    "cross-env": "^5.0.1",
+    "cross-env": "^5.1.6",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.1.1",
-    "laravel-mix": "^1.0",
-    "lodash": "^4.17.4",
-    "moment": "^2.18.1",
-    "vue": "^2.3.4"
+    "jquery": "^3.3.1",
+    "laravel-mix": "^1.7.2",
+    "lodash": "^4.17.10",
+    "moment": "2.19.3",
+    "vue": "^2.5.16"
   },
   "dependencies": {
-    "less": "^2.7.2",
-    "less-loader": "^4.0.5",
+    "less": "^2.7.3",
+    "less-loader": "^4.1.0",
     "node-gyp": "^3.6.2",
     "rebuild": "^0.1.2",
-    "vee-validate": "^2.0.0-rc.5",
-    "vue-router": "^2.6.0",
-    "vue-scrollto": "^2.6.8",
-    "vue-template-compiler": "^2.3.4",
-    "vuex": "^2.3.1"
+    "vee-validate": "^2.0.9",
+    "vue-router": "^2.8.1",
+    "vue-scrollto": "^2.11.0",
+    "vue-template-compiler": "^2.5.16",
+    "vuex": "^2.5.0"
   }
 }
