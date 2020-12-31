@@ -2,12 +2,13 @@
 	<div class="" >
 		<loading v-if="fetching_data" ></loading>
 
-		<div v-else class="btn-group" role="group" aria-label="...">		
-			 <tag v-for="tag in tags" 			 			 
-			 	  :tag="tag"			 			 
-			 	  :active_tag="active_filter_tag"
-			 	  :filterActivator="filterActivator"
-			 			 >
+		<div v-else class="btn-group" role="group" aria-label="...">
+			<tag v-for="tag in tags"
+				v-bind:key="tag.id"
+				:tag="tag"
+				:active_tag="active_filter_tag"
+				:filterActivator="filterActivator"
+			 >
 			 </tag> 
 			 <tag :tag="{name: 'Todos', key: 'all'}"
 			 	  :active_tag="active_filter_tag"

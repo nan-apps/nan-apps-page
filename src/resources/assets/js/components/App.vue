@@ -1,7 +1,8 @@
 <template>
 	<div class="app-container" >
-		<header-section :developer="attributes.developer" 
-					    :title="attributes.title">			
+		<header-section 
+			:developer="attributes.developer" 
+			:title="attributes.title">
 		</header-section>
 
 		<div class="container sections-wrapper main-container">            
@@ -14,7 +15,7 @@
 					
 					<about-section :fetching_attrs="fetching_attrs"
 								   :description="aboutMeDescription"
-								   :developer="attributes.developer" >						
+								   :developer="attributes.developer" >
 					</about-section>
 
 					<projects-section></projects-section>
@@ -68,12 +69,12 @@
 	//import LangsSection from './LangsSection.vue';
 	//import Job-experienceSection from './JobExperienceSection.vue';
 
-    export default {
-    	name: 'App',    	
-    	data: () => {
-    		return {
+	export default {
+		name: 'App',    	
+		data: () => {
+			return {
 				current_route: window.location.pathname,	    
-    		}
+			}
 		},
 		components: {
 			HeaderSection, 
@@ -86,24 +87,24 @@
 		},
 		computed: Object.assign(
 
-            Vuex.mapState({
-                attributes: state => state.attributes,
-                fetching_attrs: state => state.fetching_attrs,    
-                skills: state => state.skills,
-                partners: state => state.partners,
-                hobbies: state => state.hobbies              
-            }),
-            Vuex.mapGetters([
-                'skillsDescription',
-                'aboutMeDescription'
-            ])
+			Vuex.mapState({
+				attributes: state => state.attributes,
+				fetching_attrs: state => state.fetching_attrs,    
+				skills: state => state.skills,
+				partners: state => state.partners,
+				hobbies: state => state.hobbies              
+			}),
+			Vuex.mapGetters([
+				'skillsDescription',
+				'aboutMeDescription'
+				])
 
-        ),
+			),
 		mounted: function() {	    
-		    this.$store.dispatch('LOAD_ATTRIBUTES');
-		    this.$store.dispatch('LOAD_SKILLS');
-		    this.$store.dispatch('LOAD_PARTNERS');
-		    this.$store.dispatch('LOAD_HOBBIES');
+			this.$store.dispatch('LOAD_ATTRIBUTES');
+			this.$store.dispatch('LOAD_SKILLS');
+			this.$store.dispatch('LOAD_PARTNERS');
+			this.$store.dispatch('LOAD_HOBBIES');
 		},    	    
 	}
 

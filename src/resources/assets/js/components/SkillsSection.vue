@@ -15,7 +15,7 @@
 
                 <div class="skillset">
 
-                    <skill v-for="skill in skills" :skill="skill" >
+                    <skill v-for="skill in skills" :skill="skill" v-bind:key="skill.id">
 					</skill>
 
 				</div>              

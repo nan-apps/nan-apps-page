@@ -5,21 +5,21 @@
 		<loading v-if="fetching_hobbies" ></loading>
 
 
-	    <div v-else class="section-inner">
+		<div v-else class="section-inner">
 
-        	<section-icon icon="bicycle" ></section-icon>
+			<section-icon icon="bicycle" ></section-icon>
 
-	        <h2 class="heading">Intereses</h2>
+			<h2 class="heading">Intereses</h2>
 
-	        <div class="content">
-	            <ul class="list-unstyled">
+			<div class="content">
+				<ul class="list-unstyled">
 
-	            	<hobby v-for="hobby in hobbies" :hobby="hobby" >
+					<hobby v-for="hobby in hobbies" :hobby="hobby" v-bind:key="hobby.id">
 					</hobby>
 
-	            </ul>
-	        </div><!--//content-->
-	    </div><!--//section-inner-->
+				</ul>
+			</div><!--//content-->
+		</div><!--//section-inner-->
 	</aside><!--//section-->   
 </template>
 
