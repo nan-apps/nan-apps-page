@@ -19,7 +19,7 @@
 
 				<router-link to="/contact" class="btn btn-cta-primary pull-right">
 					<i class="fa fa-paper-plane"></i> Contactame
-				</router-link>      
+				</router-link>
 
 			</div><!--//container-->
 		</header><!--//header-->

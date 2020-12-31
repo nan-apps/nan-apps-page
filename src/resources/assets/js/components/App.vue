@@ -24,9 +24,9 @@
 				<div class="secondary col-md-4 col-sm-12 col-xs-12">
 					
 					<info-section :fetching_attrs="fetching_attrs"
-								  :email="attributes.email"
-								  :developer="attributes.developer"
-								  :location="attributes.location" >
+						:email="attributes.email"
+						:developer="attributes.developer"
+						:location="attributes.location" >
 					</info-section>
 
 					<skills-section :skills="skills.items" 

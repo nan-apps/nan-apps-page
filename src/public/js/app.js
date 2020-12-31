@@ -18493,8 +18493,8 @@ __webpack_require__(140);
 
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vee_validate__["a" /* default */], {
-  locale: 'en',
-  inject: false
+  locale: 'en'
+  //inject: false
 });
 
 
@@ -76692,7 +76692,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.section.about  .profile-photo[data-v-51235f62]{\n    max-width: 40px;\n    position: absolute;\n    right:10px; \n    top:10px;\n}\n\n", ""]);
+exports.push([module.i, "\n.section.about  .profile-photo[data-v-51235f62]{\n\tmax-width: 40px;\n\tposition: absolute;\n\tright:10px; \n\ttop:10px;\n}\n\n", ""]);
 
 // exports
 
@@ -76760,8 +76760,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['fetching_attrs', 'developer', 'description'],
-    components: { Loading: __WEBPACK_IMPORTED_MODULE_0__Loading_vue___default.a }
+	props: ['fetching_attrs', 'developer', 'description'],
+	components: { Loading: __WEBPACK_IMPORTED_MODULE_0__Loading_vue___default.a }
 });
 
 /***/ }),
@@ -76831,7 +76831,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("h2", { staticClass: "heading" }, [
-              _vm._v("\n                Sobre mi\n            ")
+              _vm._v("\n\t\t\tSobre mi\n\t\t")
             ]),
             _vm._v(" "),
             _c("div", {
@@ -77593,10 +77593,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['fetching_attrs', 'location', 'email', 'developer'],
-    components: {
-        Loading: __WEBPACK_IMPORTED_MODULE_0__Loading_vue___default.a, SectionIcon: __WEBPACK_IMPORTED_MODULE_1__SectionIcon_vue___default.a
-    }
+	props: ['fetching_attrs', 'location', 'email', 'developer'],
+	components: {
+		Loading: __WEBPACK_IMPORTED_MODULE_0__Loading_vue___default.a, SectionIcon: __WEBPACK_IMPORTED_MODULE_1__SectionIcon_vue___default.a
+	}
 });
 
 /***/ }),
@@ -78752,10 +78752,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			var err_msg = "Hubo algun error al enviar el contacto, si podés volvé a intentar o escribime a " + this.dev_attrs.email;
 
-			this.alertBox("Estamos enviando tu contacto", "fa-refresh fa-spin", "alert-info");
-
 			this.$validator.validateAll().then(function (result) {
 				if (result) {
+
+					_this.alertBox("Estamos enviando tu contacto", "fa-refresh fa-spin", "alert-info");
+
 					axios.post('/api/v1/contact_messages', {
 						email: _this.form_email,
 						name: _this.form_name,
@@ -78814,7 +78815,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("h2", { staticClass: "heading" }, [
-            _vm._v("\n\t                Contacto\n\t            ")
+            _vm._v("\n\t\t\t\t\tContacto\n\t\t\t\t")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "content column" }, [
@@ -79049,9 +79050,7 @@ var render = function() {
                             _c("i", {
                               staticClass: "fa fa-exclamation-triangle"
                             }),
-                            _vm._v(
-                              " Ingrese su consulta\n\t                             \t"
-                            )
+                            _vm._v(" Ingrese su consulta\n\t\t\t\t\t\t\t\t")
                           ])
                         ]
                       )
@@ -79086,9 +79085,7 @@ var render = function() {
                             class: _vm.user_message_icon
                           }),
                           _vm._v(
-                            " " +
-                              _vm._s(_vm.user_message) +
-                              "\n\t\t\t                    "
+                            " " + _vm._s(_vm.user_message) + "\n\t\t\t\t\t\t\t"
                           )
                         ]
                       )
@@ -79106,7 +79103,7 @@ var render = function() {
                       },
                       [
                         _c("i", { staticClass: "fa fa-paper-plane" }),
-                        _vm._v(" Enviar\n\t\t\t                \t")
+                        _vm._v(" Enviar\n\t\t\t\t\t\t\t")
                       ]
                     )
                   ])
@@ -79115,7 +79112,7 @@ var render = function() {
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-md-12" }, [
                     _c("p", { staticClass: "text-right" }, [
-                      _vm._v(" \n\t\t\t                    \tÓ escribime a "),
+                      _vm._v(" \n\t\t\t\t\t\t\t\tÓ escribime a "),
                       _c(
                         "a",
                         { attrs: { href: "mailto:" + _vm.dev_attrs.email } },

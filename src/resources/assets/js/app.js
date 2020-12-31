@@ -9,8 +9,8 @@ require('./bootstrap');
 
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate, {
-  locale: 'en',   
-  inject: false
+  locale: 'en',
+  //inject: false
 });
 
 import router from './router';
