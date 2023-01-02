@@ -15,14 +15,14 @@
     "cross-env": "^5.1.6",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
-    "laravel-mix": "^1.7.2",
+    "laravel-mix": "^6.0.49",
     "lodash": "^4.17.10",
     "moment": "2.19.3",
     "vue": "^2.5.16"
   },
   "dependencies": {
     "less": "^2.7.3",
-    "less-loader": "^4.1.0",
+    "less-loader": "^11.1.0",
     "node-gyp": "^3.6.2",
     "rebuild": "^0.1.2",
     "vee-validate": "^2.0.9",
